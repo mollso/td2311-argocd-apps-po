@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: td2311-myapp
+  name: td2311-myapp
+spec:
+  selector:
+    matchLabels:
+      app: td2311-myapp
+  template:
+    metadata:
+      labels:
+        app: td2311-myapp
+    spec:
+      containers:
+        - image: ghcr.io/mollso/td2311-myapp-po:main
+          name: td2311-myapp
+          resources:
+            requests:
+              memory: "64Mi"
+            limits:
+              memory: "1200Mi"
